@@ -82,6 +82,7 @@ async def verificar_repositorio(repo, config):
     status = stdout.decode()
     
     if "Your branch is behind" in status:
+        print("Mudança detectada em ",repo)
         logging.info(f"Mudança detectada em {repo}. Atualizando...")
         if not await run_command("git pull origin main", cwd=repo):
             return False
@@ -90,6 +91,8 @@ async def verificar_repositorio(repo, config):
         await reiniciar_servicos(config["servicos"])
     else:
         logging.info(f"Nenhuma mudança detectada em {repo}.")
+        print("Nenhuma mudança detectada em ",repo)
+        print(' ')
     
     return True
 
