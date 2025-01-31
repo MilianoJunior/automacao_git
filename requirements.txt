@@ -1,0 +1,7 @@
+# Bibliotecas principais
+asyncio>=3.4.3
+aiofiles>=23.1.0
+
+# Bibliotecas de logging (opcional, mas recomendado)
+python-json-logger>=2.0.7
+
